@@ -1,0 +1,5 @@
+{
+  "name": "conventional-changelog-cli",
+  "version": "0.0.1",
+  "description": "Generate a changelog from git metadata"
+}

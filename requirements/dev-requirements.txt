@@ -1,0 +1,11 @@
+-r requirements.txt
+-r internal-requirements.txt
+
+isort
+black
+flake8
+pylint
+mypy
+pytest
+pytest-asyncio
+pytest-coverage

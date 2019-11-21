@@ -1,0 +1,13 @@
+{
+    "Type" = [
+        "task",
+        "fix",
+        "refactor",
+        "linter",
+        "other"
+    ]
+    "Epic" = @
+    "Task" = @
+}
+
+[${Epic}/${Task}][${Type}] ${*}
