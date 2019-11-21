@@ -7,6 +7,7 @@ from aiohttp_apispec import response_schema
 
 from schemas import MessageCreateRequestSchema
 from schemas import MessageCreateResponseSchema
+from utils.auth import access_token_required
 
 
 @docs(
@@ -14,6 +15,7 @@ from schemas import MessageCreateResponseSchema
 )
 @request_schema(MessageCreateRequestSchema)
 @response_schema(MessageCreateResponseSchema)
+@access_token_required
 async def send_message(request):
     """
     Отправляет сообщение

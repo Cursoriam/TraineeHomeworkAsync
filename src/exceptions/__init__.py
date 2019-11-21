@@ -27,6 +27,16 @@ class MessageSendingException(ServerError):
     message = 'Произошла ошибка во время отправки сообщения'
 
 
+class AccessTokenInvalid(ServerError):
+    status_code = 401
+    message = 'Неверный токен'
+
+
+class AuthTypeInvalid(ServerError):
+    status_code = 401
+    message = 'Неверный тип авторизации'
+
+
 __all__ = [
     'BaseAppException',
     'Forbidden',
@@ -34,4 +44,6 @@ __all__ = [
     'InputValidationError',
     'NotFound',
     'MessageSendingException',
+    'AccessTokenInvalid',
+    'AuthTypeInvalid',
 ]

@@ -6,4 +6,4 @@ def setup_routes(app):
     Устанавливает пути запросов
     :param app:
     """
-    app.router.add_post('/send', send_message)
+    app.router.add_post('/api/pitter/v1/message', send_message)
