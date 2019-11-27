@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Pitter Async
 
 ### Async service for Pitter project
@@ -10,3 +11,6 @@
 - `make lint` - Run linter
 - `make format` - Run auto-formatter for src/
 - `make test` - Run tests
+=======
+# TraineeHomeworkAsync
+>>>>>>> 99ef0d6cd4871e3feeee2a382002630b2a1c89fc
