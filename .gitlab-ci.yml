@@ -1,0 +1,64 @@
+stages:
+  - lint
+  - test
+  - release
+  - build
+  - deploy
+
+
+flake8:
+  stage: lint
+  image: python:3.7
+  tags: [dind]
+  before_script:
+    - pip install virtualenv
+    - virtualenv venv
+    - source venv/bin/activate
+  script:
+    - pip install -r config/requirements/dev-requirements.txt
+    - flake8 src/
+
+
+pylint:
+  stage: lint
+  image: python:3.7
+  tags: [dind]
+  before_script:
+    - pip install virtualenv
+    - virtualenv venv
+    - source venv/bin/activate
+  script:
+    - pip install -r config/requirements/dev-requirements.txt
+    - pylint src
+
+
+mypy:
+  stage: lint
+  image: python:3.7
+  tags: [dind]
+  before_script:
+    - pip install virtualenv
+    - virtualenv venv
+    - source venv/bin/activate
+  script:
+    - pip install -r config/dev-requirements.txt
+    - mypy --ignore-missing-imports src
+
+
+test:
+  stage: test
+  image: python:3.7
+  tags: [dind]
+  cache:
+    paths:
+      - .cache/pip
+      - venv/
+  before_script:
+    - pip install virtualenv
+    - virtualenv venv
+    - source venv/bin/activate
+  script:
+    - pip install -r config/requirements/dev-requirements.txt
+    - export ENVIRONMENT=pytest && pytest -s -vv
+  coverage: '/TOTAL.+?(\d+%)/'
+

@@ -1,0 +1,9 @@
+version: '3.7'
+services:
+  pitter_async:
+    build: .
+    env_file:
+      - local.env
+    depends_on:
+      - redis
+      - postgresql
