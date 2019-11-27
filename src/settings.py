@@ -1,5 +1,8 @@
 import os
 
+URL: str = 'https://speech.googleapis.com/v1/speech:recognize'
+API_KEY: str =
+
 DEBUG: bool = bool(int(os.getenv('DEBUG', 1)))  # pylint: disable=invalid-envvar-default
 
 PROJECT_DIR: str = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

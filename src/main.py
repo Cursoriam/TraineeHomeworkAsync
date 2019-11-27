@@ -27,4 +27,4 @@ logging.basicConfig(level=logging.INFO if settings.DEBUG else logging.WARNING)
 LOOP = asyncio.get_event_loop()
 
 if __name__ == '__main__':
-    web.run_app(create_app(), port=8118)
+    web.run_app(create_app(), port=8118, host="localhost")
