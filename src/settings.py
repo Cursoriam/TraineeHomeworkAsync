@@ -1,7 +1,7 @@
 import os
 
 URL: str = 'https://speech.googleapis.com/v1/speech:recognize'
-API_KEY: str = 'AIzaSyDO_RvBHCGVGFVDSZirv0uMNEMCf3DoTtQ'
+API_KEY: str = 
 
 DEBUG: bool = bool(int(os.getenv('DEBUG', 1)))  # pylint: disable=invalid-envvar-default
 
