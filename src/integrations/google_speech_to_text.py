@@ -10,7 +10,7 @@ from settings import API_KEY
 
 class GoogleSTT:
     @classmethod
-    def transcript(cls, audio_file: bytes) -> str:
+    async def transcript(cls, audio_file: bytes) -> str:
         try:
             req = loads(
                 post(URL, params=dict(key=API_KEY, ),
@@ -25,25 +25,25 @@ class GoogleSTT:
         print(req)
         try:
             results = req['results']
-        except Exception:
-            raise Exception('No param \'results\'')
+        except KeyError:
+            raise KeyError('No param \'results\'')
 
         transcripted: str = ''
 
         for result in results:
             try:
                 alternatives = result['alternatives']
-            except Exception:
-                raise Exception('No param \'alternatives\'')
+            except KeyError:
+                raise KeyError('No param \'alternatives\'')
 
             try:
                 alternative = alternatives[0]
-            except Exception:
-                raise Exception('There is no index 0 in dict')
+            except IndexError:
+                raise IndexError('There is no index 0 in dict')
 
             try:
                 transcripted = transcripted+alternative['transcript']
-            except Exception:
-                raise Exception('No param \'transcripted\'')
+            except KeyError:
+                raise KeyError('No param \'transcripted\'')
 
         return transcripted
